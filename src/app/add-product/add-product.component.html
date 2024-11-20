@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+<div class="p-grid p-justify-center">
+  <div class="p-col-12 p-md-6 p-lg-6">
+    <div class="p-fluid">
+      <h2>Product Form</h2>
+
+      <!-- Product Name -->
+      <div class="p-field">
+        <label for="productName">Product Name</label>
+        <input id="productName" type="text" pInputText [(ngModel)]="produit.nom" placeholder="Enter product name" />
+      </div>
+
+      <!-- Product Price -->
+      <div class="p-field">
+        <label for="productPrice">Price</label>
+        <input id="productPrice" type="number" pInputText [(ngModel)]="produit.prix" placeholder="Enter price" />
+      </div>
+
+      <!-- Product Quantity -->
+      <div class="p-field">
+        <label for="productQuantity">Quantity</label>
+        <input id="productQuantity" type="number" pInputText [(ngModel)]="produit.quantite" placeholder="Enter quantity" />
+      </div>
+
+      <!-- Product Description -->
+      <div class="p-field">
+        <label for="productDescription">Description</label>
+        <textarea id="productDescription" pInputTextarea [(ngModel)]="produit.description" placeholder="Enter description"></textarea>
+      </div>
+
+      <!-- Product Image Upload -->
+      <div class="p-field">
+        <label for="productImage">Image</label>
+        <input
+          id="productImage"
+          type="file"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+        />
+      </div>
+
+
+      <!-- Category Dropdown -->
+      <div class="p-field">
+        <label for="productCategory">Category</label>
+        <p-dropdown id="productCategory" [(ngModel)]="produit.categorie" [options]="categories" optionLabel="label" optionValue="value" placeholder="Select a category"></p-dropdown>
+      </div>
+
+      <!-- Submit Button -->
+      <button pButton type="button" label="Submit" (click)="submitForm()"></button>
+    </div>
+  </div>
+</div>

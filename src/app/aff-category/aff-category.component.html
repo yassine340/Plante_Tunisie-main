@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<div class="table-container">
+  <h2 class="text-center">All Categories</h2>
+
+  <!-- Add Category Button -->
+  <div class="add-category-button text-center">
+    <button pButton type="button" label="Add Category" icon="pi pi-plus" class="p-button-success" (click)="addCategory()"></button>
+  </div>
+  <br>
+
+  <!-- Loading indicator while fetching data -->
+  <div *ngIf="loading" class="loading-indicator">
+    <span>Loading categories...</span>
+  </div>
+
+  <!-- Categories table -->
+  <table *ngIf="!loading && categories.length > 0" class="category-table">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.nom }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" [routerLink]="['/edit-category', category.id]"></button>
+          <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteCategory(category)"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Message when no categories are available -->
+  <div *ngIf="!loading && categories.length === 0" class="no-categories">
+    <span>No categories available.</span>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <h2 class="text-center">Vérification OTP</h2>
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="email">Adresse Email</label>
+            <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Entrez votre email"
+            />
+            <div *ngIf="otpForm.controls['email'].invalid && otpForm.controls['email'].touched" class="text-danger">
+                Veuillez entrer une adresse email valide.
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="otp">Code OTP</label>
+            <input
+                    id="otp"
+                    type="number"
+                    class="form-control"
+                    formControlName="otp"
+                    placeholder="Entrez le code OTP reçu"
+            />
+            <div *ngIf="otpForm.controls['otp'].invalid && otpForm.controls['otp'].touched" class="text-danger">
+                Veuillez entrer un code OTP valide.
+            </div>
+        </div>
+
+        <button
+                type="submit"
+                class="btn btn-primary w-100"
+                [disabled]="otpForm.invalid || isSubmitting"
+        >
+            {{ isSubmitting ? "Vérification en cours..." : "Vérifier" }}
+        </button>
+    </form>
+
+    <div *ngIf="message" class="alert mt-3" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}">
+        {{ message }}
+    </div>
+</div>

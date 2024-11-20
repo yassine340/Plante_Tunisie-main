@@ -1,0 +1,74 @@
+/* Container for the table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Center the title and button */
+  .text-center {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Category table styling */
+  .category-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .category-table th,
+  .category-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .category-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .category-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .category-table td {
+    color: #555;
+  }
+  
+  /* Actions column styling */
+  .category-table td:last-child {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Loading indicator styling */
+  .loading-indicator {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  /* No categories message */
+  .no-categories {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 20px;
+  }
+  
+  /* Add Category button styling */
+  .add-category-button {
+    display: flex;
+    justify-content: center;  /* Center the button horizontally */
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+  }
+  

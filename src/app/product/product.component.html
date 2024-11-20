@@ -1,0 +1,37 @@
+<app-nav-bar></app-nav-bar>
+
+<!-- Add Product button -->
+<div class="add-product-button">
+  <h2 class="text-center">All Products</h2>
+  <button pButton type="button" label="Add Product" icon="pi pi-plus" class="p-button-success" [routerLink]="['/add-product']"></button>
+</div>
+
+<!-- Display products in a table-like structure -->
+<div *ngIf="products.length > 0" class="table-container">
+  <div class="table">
+    <div class="table-row header">
+      <div class="table-cell">Image</div>
+      <div class="table-cell">Name</div>
+      <div class="table-cell">Description</div>
+      <div class="table-cell">Price</div>
+      <div class="table-cell">Actions</div>
+    </div>
+    <div *ngFor="let product of products" class="table-row">
+      <div class="table-cell">
+        <img [src]="product.image" alt="Product Image" />
+      </div>
+      <div class="table-cell">{{ product.nom }}</div>
+      <div class="table-cell">{{ product.description }}</div>
+      <div class="table-cell">{{ product.prix | currency }}</div>
+      <div class="table-cell">
+        <button pButton type="button" label="Edit" icon="pi pi-pencil" class="p-button-warning" [routerLink]="['/edit-product', product.id]"></button>
+        <button pButton type="button" label="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteProduct(product)"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Message when no products are available -->
+<div *ngIf="products.length === 0" class="no-products">
+  <p>No products available.</p>
+</div>

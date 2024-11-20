@@ -1,0 +1,25 @@
+<app-nav-bar></app-nav-bar>
+<div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-6 p-lg-6">
+      <div class="p-fluid">
+        <h2>Add Category</h2>
+
+        <!-- Category Name -->
+        <form [formGroup]="categoryForm" (ngSubmit)="submitCategory()">
+          <div class="p-field">
+            <label for="categoryName">Category Name</label>
+            <input id="categoryName" type="text" pInputText formControlName="nom" placeholder="Enter category name" />
+          </div>
+
+          <!-- Category Description -->
+          <div class="p-field">
+            <label for="categoryDescription">Description</label>
+            <textarea id="categoryDescription" pInputTextarea formControlName="description" placeholder="Enter category description"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button pButton type="submit" label="Add Category"></button>
+        </form>
+      </div>
+    </div>
+</div>

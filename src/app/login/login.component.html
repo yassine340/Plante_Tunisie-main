@@ -1,0 +1,81 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="tab-container">
+      <div class="tabs">
+        <span class="log" [class.active]="isLogin" (click)="toggleForm(true)">Login</span>
+        <span class="log" [class.active]="!isLogin" (click)="toggleForm(false)">Sign Up</span>
+      </div>
+      <div class="form-container">
+        <!-- Login Form -->
+        <form *ngIf="isLogin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <h2 class="login-title">Login Here</h2>
+          <div class="input-group">
+            <label for="login-username">Email</label>
+            <input id="login-username" type="text" pInputText placeholder="Email" formControlName="email"  name="username" required />
+            <div class="input-error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['required']">email is required.</small>
+              <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email']">Email must be in a valid format.</small>
+          </div>
+          </div>
+          <div class="input-group">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" pInputText placeholder="Password" formControlName="password"  name="password" required />
+            <div class="input-error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <small class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">password is required.</small>
+          </div>
+          </div>
+
+          <div class="forgot-password">
+            <a [routerLink]="'/reset-password/request'">Forgot Password?</a>
+          </div>
+          <button pButton type="submit" label="Log In" class="login-btn"></button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form *ngIf="!isLogin" [formGroup]="registerForm" (ngSubmit)="onSignUp()">
+          <h2 class="login-title">Sign Up</h2>
+          <div class="input-group">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" type="text" pInputText placeholder="Username" formControlName="signupUsername" name="signupUsername" required />
+            <div class="input-error" *ngIf="registerForm.get('signupUsername')?.invalid && registerForm.get('signupUsername')?.touched">
+              <small class="text-danger" *ngIf="registerForm.get('signupUsername')?.errors?.['required']">Username is required.</small>
+          </div>
+          </div>
+
+          <div class="input-group">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" pInputText placeholder="Email" formControlName="signupEmail" name="signupEmail" required />
+            <div class="input-error" *ngIf="registerForm.get('signupEmail')?.invalid && registerForm.get('signupEmail')?.touched">
+              <small class="text-danger" *ngIf="registerForm.get('signupEmail')?.errors?.['required']">Email is required.</small>
+              <small class="text-danger" *ngIf="registerForm.get('signupEmail')?.errors?.['email']">Email must be in a valid format.</small>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" pInputText placeholder="Password" formControlName="signupPassword" name="signupPassword" required />
+            <div class="input-error" *ngIf="registerForm.get('signupPassword')?.invalid && registerForm.get('signupPassword')?.touched">
+              <small class="text-danger" *ngIf="registerForm.get('signupPassword')?.errors?.['required']">password is required.</small>
+              <small class="text-danger" *ngIf="registerForm.get('signupPassword')?.errors?.['minlength']">Password must be at least 6 characters.</small>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input id="confirm-password" type="password" pInputText placeholder="Confirm Password" formControlName="confirmPassword" required />
+            <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.errors?.['mustMatch']">
+              <small class="text-danger">Passwords must match</small>
+            </div>
+          </div>
+          <div class="remember-me">
+            <input type="checkbox" id="remember-me" name="remember-me" />
+            <label for="remember-me">Remember Me</label>
+        </div>
+          <button pButton type="submit" label="Sign Up" class="login-btn"></button>
+          <div class="social-buttons">
+            <button pButton icon="pi pi-google" label="Google" class="google-btn"></button>
+            <button pButton icon="pi pi-facebook" label="Facebook" class="facebook-btn"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

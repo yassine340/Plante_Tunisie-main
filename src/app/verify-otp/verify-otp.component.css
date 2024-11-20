@@ -1,0 +1,107 @@
+/* Container for the form */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Light background for the form container */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Ensures padding is included in the container height */
+}
+
+/* Heading styling */
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Input fields styling */
+input.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+  width: 100%; /* Ensures input field stretches across the available space */
+}
+
+input.form-control:focus {
+  border-color: #007bff; /* Blue color for focus */
+  outline: none;
+}
+
+/* Additional spacing between input and button */
+.form-group.mb-3 {
+  margin-bottom: 30px; /* Increased spacing between input and button */
+}
+
+/* Error message styling */
+.text-danger {
+  font-size: 14px;
+  margin-top: 5px;
+  color: red; /* Red color for error messages */
+}
+
+/* Submit button styling */
+button.btn {
+  background-color: #007bff; /* Blue button */
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%; /* Ensures button stretches across the available space */
+}
+
+button.btn:disabled {
+  background-color: #cccccc; /* Grey color for disabled button */
+  cursor: not-allowed;
+}
+
+button.btn:hover:not(:disabled) {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Alert message styling */
+.alert {
+  font-size: 16px;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 100%; /* Ensures the alert stretches across the available space */
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .container {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button.btn {
+    font-size: 14px;
+  }
+}

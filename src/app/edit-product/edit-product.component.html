@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+<div class="p-grid p-justify-center">
+  <div class="p-col-12 p-md-6 p-lg-6">
+    <div class="p-fluid">
+      <h2>Edit Product</h2>
+
+      <!-- Product Name -->
+      <div class="p-field">
+        <label for="productName">Product Name</label>
+        <input id="productName" type="text" pInputText [(ngModel)]="product.nom" placeholder="Enter product name" />
+      </div>
+
+      <!-- Product Price -->
+      <div class="p-field">
+        <label for="productPrice">Price</label>
+        <input id="productPrice" type="number" pInputText [(ngModel)]="product.prix" placeholder="Enter price" />
+      </div>
+
+      <!-- Product Quantity -->
+      <div class="p-field">
+        <label for="productQuantity">Quantity</label>
+        <input id="productQuantity" type="number" pInputText [(ngModel)]="product.quantite" placeholder="Enter quantity" />
+      </div>
+
+      <!-- Product Description -->
+      <div class="p-field">
+        <label for="productDescription">Description</label>
+        <textarea id="productDescription" pInputTextarea [(ngModel)]="product.description" placeholder="Enter description"></textarea>
+      </div>
+
+      <!-- Product Image -->
+      <div class="p-field">
+        <label for="productImage">Image</label>
+        <input id="productImage" type="text" pInputText [(ngModel)]="product.image" placeholder="Enter image URL" />
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="p-field">
+        <label for="productCategory">Category</label>
+        <p-dropdown id="productCategory" [(ngModel)]="product.categorie_id" [options]="categories" placeholder="Select a category"></p-dropdown>
+      </div>
+
+      <!-- Submit Button -->
+      <button pButton type="button" label="Update" ></button>
+    </div>
+  </div>
+</div>

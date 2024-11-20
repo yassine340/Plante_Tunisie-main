@@ -1,0 +1,24 @@
+<app-nav-bar></app-nav-bar>
+<div class="p-grid p-justify-center">
+  <div class="p-col-12 p-md-6 p-lg-6">
+    <div class="p-fluid">
+      <h2>Edit Category</h2>
+
+      <!-- Category Edit Form -->
+      <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+        <div class="p-field">
+          <label for="nom">Category Name</label>
+          <input id="nom" type="text" pInputText formControlName="nom" placeholder="Enter category name" />
+        </div>
+
+        <div class="p-field">
+          <label for="description">Description</label>
+          <textarea id="description" pInputTextarea formControlName="description" placeholder="Enter category description"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button pButton type="submit" label="Update Category" [disabled]="categoryForm.invalid"></button>
+      </form>
+    </div>
+  </div>
+</div>

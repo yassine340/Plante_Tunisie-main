@@ -1,0 +1,14 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="products-list">
+  <div *ngFor="let product of products" class="product-card">
+    <!-- Affichage de l'image -->
+    <img [src]="product.image" alt="{{ product.nom }}" />
+    <h3>{{ product.nom }}</h3>
+    <p>{{ product.description }}</p>
+    <p class="price">Price: {{ product.prix }} USD</p>
+    <p class="quantity">Quantity: {{ product.quantite }}</p>
+   <!-- <p class="category">Category: {{ product.categorie?.nom || 'No category' }}</p> -->
+    <a class="action-button" href="#">View Details</a>
+  </div>
+</div>

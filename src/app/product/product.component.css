@@ -1,0 +1,91 @@
+/* Container for table layout */
+.table-container {
+  display: flex;
+  flex-direction: column; /* Allowing the title and table to stack vertically */
+  align-items: center; /* Center content */
+  padding: 20px;
+}
+
+.add-product-button {
+  display: flex;
+  flex-direction: column; /* Stack title and button vertically */
+  align-items: center; /* Center the content horizontally */
+  margin-bottom: 20px; /* Add spacing below the section */
+}
+
+.p-fluid h2 {
+  font-size: 2rem; /* Larger font size for prominence */
+  text-align: center;
+  color: #333;
+  margin: 0; /* Remove default margin */
+  padding-bottom: 1rem; /* Space below h2 for better separation */
+  font-weight: 600; /* Increased weight for visibility */
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-row.header {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr 1fr 2fr; /* Adjust as needed */
+  align-items: center;
+  padding: 15px 0; /* Increased padding for a more spacious look */
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  padding: 15px; /* Increased padding */
+}
+
+/* Image styling */
+.table-cell img {
+  width: 100px; /* Slightly larger image */
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Price styling */
+.table-cell .price {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1rem; /* Slightly larger font size */
+}
+
+/* Button alignment */
+.table-cell button {
+  margin-right: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .table {
+    width: 100%;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-cell {
+    padding: 10px;
+  }
+}
+
+/* Styling for 'No products available' message */
+.no-products {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 30px;
+}

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2 class="text-center">Réinitialiser le mot de passe</h2>
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="email">Adresse Email</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Entrez votre email"
+      />
+      <div *ngIf="emailForm.controls['email'].invalid && emailForm.controls['email'].touched" class="text-danger">
+        Veuillez entrer une adresse email valide.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary w-100"
+      [disabled]="emailForm.invalid || isSubmitting"
+    >
+      {{ isSubmitting ? "Envoi en cours..." : "Envoyer l'email" }}
+    </button>
+  </form>
+
+  <div *ngIf="message" class="alert mt-3" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}">
+    {{ message }}
+  </div>
+</div>
