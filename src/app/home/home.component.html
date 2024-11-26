@@ -9,6 +9,6 @@
     <p class="price">Price: {{ product.prix }} USD</p>
     <p class="quantity">Quantity: {{ product.quantite }}</p>
    <!-- <p class="category">Category: {{ product.categorie?.nom || 'No category' }}</p> -->
-    <a class="action-button" href="#">View Details</a>
+    <a class="action-button" [routerLink]="['/product-details', product.id]">View Details</a>
   </div>
 </div>

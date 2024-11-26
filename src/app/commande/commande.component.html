@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-section">
+    <h2>Confirmation de commande</h2>
+    <form #commandeForm="ngForm" (ngSubmit)="submitCommande(commandeForm.value)">
+      <!-- Groupes de champs -->
+      <div class="form-group">
+        <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Prénom" [(ngModel)]="demandeCommande.prenom" required />
+        <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" [(ngModel)]="demandeCommande.nom" required />
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="demandeCommande.email" required />
+        <input type="text" id="numtel" name="numtel" class="form-control" placeholder="Numéro de téléphone" [(ngModel)]="demandeCommande.numtel" required />
+      </div>
+      <div class="form-group">
+        <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Adresse" [(ngModel)]="demandeCommande.adresse" required />
+        <input type="text" id="city" name="city" class="form-control" placeholder="Ville" [(ngModel)]="demandeCommande.city" required />
+      </div>
+      <div class="form-group">
+        <input type="text" id="state" name="state" class="form-control" placeholder="État" [(ngModel)]="demandeCommande.state" required />
+        <input type="text" id="pincode" name="pincode" class="form-control" placeholder="Code CIN" [(ngModel)]="demandeCommande.pincode" required />
+      </div>
+      <!-- Section Paiement -->
+      <div class="payment-section">
+        <h2>Type de paiement</h2>
+        <div class="price-details">
+          <p>Total Price: <span>{{ totalOrderPrice }} €</span></p>
+          <hr>
+          <p><b>Total Price: <span>{{ totalOrderPrice }} €</span></b></p>
+        </div>
+        <div class="form-group">
+          <select id="typePayment" name="typePayment" class="form-control" [(ngModel)]="demandeCommande.typEPayment" required>
+            <option value="" disabled selected>Type de paiement</option>
+            <option value="CREDIT_CARD">Carte de crédit</option>
+            <option value="PAYPAL">PayPal</option>
+            <option value="CASH_ON_DELIVERY">Paiement à la livraison</option>
+          </select>
+        </div>
+      </div>
+      <!-- Boutons -->
+      <div class="button-container">
+        <button type="submit" class="place-order-btn">Confirmer la commande</button>
+        <button type="button" class="btn btn-danger" (click)="continueShopping()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

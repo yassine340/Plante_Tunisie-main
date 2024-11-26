@@ -1,0 +1,24 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="product">
+  <div class="product-details">
+    <img *ngIf="product.image" [src]="product.image" alt="{{ product.nom }}" />
+    <div>
+      <h2>{{ product.nom }}</h2>
+      <h4>Description à propos de ce produit:</h4>
+      <p>{{ product.description }}</p>
+      <p class="price">Prix: {{ product.prix }} USD</p>
+      <p class="quantity">Quantité: {{ product.quantite }}</p>
+
+      <!-- Commentaire sur la catégorie, vous pouvez décommenter si vous avez la catégorie -->
+      <!-- <p class="category">Catégorie: {{ product.categorie?.nom || 'Pas de catégorie' }}</p> -->
+
+      <div class="action-buttons">
+        <!-- Bouton pour ajouter au panier, appelant la méthode addToCart() -->
+        <button class="btn btn-success" (click)="addToCart()">Ajouter au panier</button>
+
+        <!-- Bouton pour continuer vos achats -->
+        <button class="btn btn-danger" (click)="continueShopping()">Continuer vos achats</button>
+      </div>
+    </div>
+  </div>
+</div>

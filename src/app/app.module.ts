@@ -27,6 +27,10 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { RequestResetEmailComponent } from './request-reset-email/request-reset-email.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { CommandeComponent } from './commande/commande.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -43,6 +47,10 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     RequestResetEmailComponent,
     VerifyOtpComponent,
     ResetPasswordComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    CommandeComponent,
+    ContactComponent,
 
   ],
   imports: [

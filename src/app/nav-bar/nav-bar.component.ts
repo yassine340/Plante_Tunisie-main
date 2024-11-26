@@ -94,7 +94,14 @@ export class NavBarComponent implements OnInit {
       },
       {
         label: 'Contact',
-        icon: 'pi pi-envelope'
+        icon: 'pi pi-envelope',
+        routerLink:['/contact']
+      },
+      // Ajoutez ici l'élément "Panier"
+      {
+        label: 'Panier',
+        icon: 'pi pi-shopping-cart', // Icône de panier
+        routerLink: ['/cart'] // Route vers la page du panier, assurez-vous que la route est définie
       }
     ];
   }

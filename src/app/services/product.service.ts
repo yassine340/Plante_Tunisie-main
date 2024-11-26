@@ -39,9 +39,9 @@ export class ProductService {
     return this.http.put<Product>(url, payload);
   }
 
-  // Obtenir un produit par ID
+  // Service Angular - ProductService
   public getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/byId/${id}`);
+    return this.http.get<Product>(`${this.baseUrl}/affiche/${id}`);
   }
 
   // Obtenir tous les produits
@@ -58,4 +58,10 @@ export class ProductService {
   public getProductImage(productId: number | undefined): Observable<Blob> {
     return this.http.get(`${this.baseUrl}/image/${productId}`, { responseType: 'blob' });
   }
+  public addToCart(productId: number | undefined, userId: number): Observable<any> {
+    const url = `http://localhost:9094/api/utilisateurs/addCart?idProduit=${productId}&idUtilisateur=${userId}`;
+    return this.http.post<any>(url, {});
+  }
+
+
 }

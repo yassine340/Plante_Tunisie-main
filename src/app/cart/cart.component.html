@@ -1,0 +1,47 @@
+<app-nav-bar></app-nav-bar>
+<div class="cart-container">
+  <h2>Mon Panier</h2>
+
+  <div *ngIf="cartItems.length === 0">
+    <p>Votre panier est vide.</p>
+  </div>
+
+  <div *ngIf="cartItems.length > 0">
+    <table class="shopping-cart">
+      <thead>
+      <tr>
+        <th>Image</th>
+        <th>Produit</th>
+        <th>Prix unitaire</th>
+        <th>Quantité</th>
+        <th>Prix total</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>
+          <img *ngIf="item.produit.image" [src]="item.produit.image" alt="{{ item.produit.nom }}" />
+        </td>
+        <td>{{ item.produit.nom }}</td>
+        <td>{{ item.produit.prix }} €</td>
+        <td>
+          <button (click)="updateQuantity(item.id, 'decrease')">-</button>
+          {{ item.quantite }}
+          <button (click)="updateQuantity(item.id, 'increase')">+</button>
+        </td>
+        <td>{{ item.prixTotal }} €</td>
+        <td>
+          <button (click)="removeCartItem(item.id)">Supprimer</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="cart-summary center-align">
+      <h3>Total : {{ totalOrderPrice }} €</h3>
+      <button class="action-button" (click)="goToCommande()">Procédure de paiement</button>
+
+    </div>
+  </div>
+</div>

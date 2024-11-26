@@ -13,7 +13,25 @@ import { ProductComponent } from './product/product.component';
 import { RequestResetEmailComponent } from './request-reset-email/request-reset-email.component';
 import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
+
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
+import { CartComponent } from './cart/cart.component';  // Assure-toi d'importer le composant
+
+import { CommandeComponent } from './commande/commande.component';
+import {ContactComponent} from "./contact/contact.component"; // Importation de la composante Commande
+
 const routes: Routes = [
+
+
+  {path:'contact', component:ContactComponent},
+  { path: 'commande', component: CommandeComponent }, // Route pour la page commande
+
+  { path: 'cart', component: CartComponent },
+
+
+  { path: 'product-details/:id', component: ProductDetailsComponent },
+
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'reset-password/verify', component: VerifyOtpComponent },
   { path: 'reset-password/request', component: RequestResetEmailComponent },
